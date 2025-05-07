@@ -14,7 +14,7 @@
 - light/dark mode 
 - add/delete notes ➕
 - save note
-= search button 
+- search button 
 
 # Tech stack
 - javascript
