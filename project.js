@@ -19,34 +19,41 @@ addBtn.addEventListener('click',function(e){
     showNotes();
 })
 // Function to show elements from local storage
-function showNotes(){
+function showNotes() {
     let notes = localStorage.getItem("notes");
-    let html ="";
-    if(notes == null){
-        notesObj =[];
-    }
-    else{
+    let html = "";
+    if (notes == null) {
+        notesObj = [];
+    } else {
         notesObj = JSON.parse(notes);
     }
-    notesObj.forEach(function(element, index) {
+    notesObj.forEach(function (element, index) {
         html += `
-        <div class="noteCard my-2 mx-2 card" style="width: 18rem;">
+        <div class="noteCard my-2 mx-2 card" style="width: 18rem">
             <div class="card-body">
                 <h5 class="card-title">Note ${index + 1}</h5>
                 <p class="card-text">${element}</p>     
-                <button id = "${index}" onclick="deleteNote(this.id)" class="btn btn-primary">Delete Note</button>
+                <button id="${index}" onclick="deleteNote(this.id)" class="btn btn-primary">Delete Note</button>
             </div>  
         </div>`;
-
-
     });
-let notesElm = document.getElementById('notes');
-if(notesObj.length != 0){
-    notesElm.innerHTML = html;
+    let notesElm = document.getElementById('notes');
+    if (notesObj.length != 0) {
+        notesElm.innerHTML = html;
+
+        // Apply dark mode styles to new notes if dark mode is active
+        if (document.body.classList.contains("dark-mode")) {
+            let noteCards = document.getElementsByClassName('noteCard');
+            Array.from(noteCards).forEach(function (element) {
+                element.style.backgroundColor = "#111827";
+                element.style.border = "1px solid white";
+                element.style.color = "white";
+            });
+        }
+    } else {
+        notesElm.innerHTML = `<div style="font-family : cursive; "><h3>Nothing to show! Use "Add a Note" section above to add notes.</h3></div>`;
+    }
 }
-else{
-    notesElm.innerHTML = `<div style="font-family : cursive; "><h3>Nothing to show! Use "Add a Note" section above to add notes.</h3></div>`;
-}};
 
 // Function to delete a note
 function deleteNote(index){
