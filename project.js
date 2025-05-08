@@ -49,9 +49,20 @@ function showNotes() {
                 element.style.border = "1px solid white";
                 element.style.color = "#d3d3d3";
             });
+           
+            
+        }
+        else {
+            let cardBody = document.getElementsByClassName('card-body');
+        Array.from(cardBody).forEach(function (element) {
+            element.style.backgroundColor = "lightgrey";
+            element.style.color = "black";
+            element.style.border = "1px solid black";
+        })
         }
     } else {
         notesElm.innerHTML = `<div style="font-family : cursive; "><h3>Nothing to show! Use "Add a Note" section above to add notes.</h3></div>`;
+        
     }
 }
 
@@ -91,7 +102,7 @@ darkMode.addEventListener('click', function(){
     element.classList.toggle("dark-mode");
     if(element.classList.contains("dark-mode")){
         darkMode.innerText = "Light Mode 🌞";
-        document.body.style.backgroundColor = "#1F2937";
+        document.body.style.backgroundColor = "#1a232f";
         document.body.style.color = "white";
         let noteCards = document.getElementsByClassName('noteCard');
         Array.from(noteCards).forEach(function(element){
@@ -101,7 +112,13 @@ darkMode.addEventListener('click', function(){
         })
         let elem = document.getElementsByClassName('card');
         Array.from(elem).forEach(function(element){
-            element.style.backgroundColor = "#111827";
+            element.style.backgroundColor = "#1a232f";
+            element.style.color = "white";
+            element.style.border = "1px solid white";
+        })
+        let elem4 = document.getElementsByClassName('card-body');
+        Array.from(elem4).forEach(function(element){
+            element.style.backgroundColor = "#1a232f";
             element.style.color = "white";
             element.style.border = "1px solid white";
         })
@@ -143,10 +160,16 @@ darkMode.addEventListener('click', function(){
         let elem3 = document.getElementsByClassName('btn');
         Array.from(elem3).forEach(function(element){
             element.style.backgroundColor = "#3B82F6";
-            element.style.color = "white";
+            element.style.color = "#d3d3d3";
             element.style.border = "1px solid black";
         })
 
+        let cardBody = document.getElementsByClassName('card-body');
+        Array.from(cardBody).forEach(function (element) {
+            element.style.backgroundColor = "lightgrey";
+            element.style.color = "black";
+            element.style.border = "1px solid black";
+        })
     }
 });
 
