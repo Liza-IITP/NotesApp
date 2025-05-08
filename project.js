@@ -47,7 +47,7 @@ function showNotes() {
             Array.from(noteCards).forEach(function (element) {
                 element.style.backgroundColor = "#111827";
                 element.style.border = "1px solid white";
-                element.style.color = "white";
+                element.style.color = "#d3d3d3";
             });
         }
     } else {
